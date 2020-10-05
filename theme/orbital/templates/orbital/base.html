@@ -1,0 +1,57 @@
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bb6e3fb653.js" crossorigin="anonymous"></script>
+    {% block title %}
+    <title>Base HTML</title>
+    {% endblock title %}
+        
+    
+    <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    
+    {% block header %}
+    
+    {% include "orbital/navbar.html"%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="mt-3 img-fluid" src="{% static 'images/logo.png' %}" alt="image">
+            </div>
+        </div>
+    </div>
+        
+    {% endblock header %}
+        
+    
+    {% block article %}
+        
+    {% endblock article %}
+        
+    
+    {% block footer %}
+    {% include "orbital/footer.html"%}
+    {% endblock footer %}
+
+    
+
+
+     <script type="text/javascript" src="{% static 'js/plantilla.js' %}"></script>   
+</body>
+</html>

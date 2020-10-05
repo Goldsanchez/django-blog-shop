@@ -1,0 +1,64 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+
+
+{% block article %}
+<div class="container col-md-6 my-3">
+    <div class="row">
+        <div class="col">
+            <h1>{{object.title}} &nbsp<a class="btn btn-primary" href="{% url 'update' object.id %}"><i class="fas fa-plus-circle">&nbsp</i>Update</a>&nbsp<a class="btn btn-danger" href="{% url 'delete' object.id %}"><i class="fas fa-trash">&nbsp</i>Delete</a></h1>
+            <p>{{object.detail}}</p>
+            <p >{{comentarios.comment}}</p>
+        </div>
+        
+        
+        <div class="container my-3">
+          <div class="row">
+            <div class="col">
+              <h3>Sé el primero en comentar :)</h3>
+               <form class="form-group" method="POST">{% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Comentar">
+                <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+               </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col my-2">
+            <h3>Coments</h3>
+            {% for com in comentarios %}
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title">{{com.name}}</h5>
+                <p class="card-text">{{com.comment}}</p>
+                <p class="card-text">{{com.new}}</p>
+              </div>
+            </div>
+            
+            {% endfor %}
+            
+
+            
+
+
+            {% comment %}
+            {% if comentarios.new == articles.title %}
+            You have lots of messages today!
+            {% endif %}
+            {% for article in articles %}
+            <p class="card-text"><small class="text-muted"><a href="{% url 'articles' article.pk %}">Leer más...</a></small></p>
+            {% endfor %}
+            {% endcomment %}
+              
+                            
+
+        </div>
+        
+    </div>
+        
+            
+        
+</div>
+{% endblock article %}
+    

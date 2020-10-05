@@ -1,0 +1,1 @@
+console.log("El documento javaScript se ha cargado correctamente.");

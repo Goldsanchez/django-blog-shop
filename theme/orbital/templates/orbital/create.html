@@ -1,0 +1,18 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+
+
+{% block article %}
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <form class="form-group" method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-primary" type="submit" value="Crear">
+                <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock article %}
+    

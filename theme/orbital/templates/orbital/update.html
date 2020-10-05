@@ -1,0 +1,17 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+
+
+{% block article %}
+    <div class="row">
+        <div class="col">
+            <h3>Actualiza el articulo</h3>
+        <form method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Update">
+            <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+        </form>
+        </div>
+    </div>
+{% endblock article %}
+    
