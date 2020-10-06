@@ -15,6 +15,7 @@
         <div class="container my-3">
           <div class="row">
             <div class="col">
+              <hr>
               <h3>Sé el primero en comentar :)</h3>
                <form class="form-group" method="POST">{% csrf_token %}
                 {{ form.as_p }}
@@ -28,11 +29,11 @@
         <div class="col my-2">
             <h3>Coments</h3>
             {% for com in comentarios %}
-            <div class="card my-2">
+            <div class="card border border-primary my-2">
               <div class="card-body">
                 <h5 class="card-title">{{com.name}}</h5>
                 <p class="card-text">{{com.comment}}</p>
-                <p class="card-text">{{com.new}}</p>
+                {% comment %}<p class="card-text">{{com.new}}</p>{% endcomment %}
               </div>
             </div>
             
