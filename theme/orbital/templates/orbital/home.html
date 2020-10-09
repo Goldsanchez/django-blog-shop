@@ -7,6 +7,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <img class="mt-3 img-fluid" src="{% static 'images/logo.png' %}" alt="image">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <h1 class="text-center my-3">Learn How to Play Poker Online</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque veniam voluptatibus laudantium accusantium dolor odio sit ex cupiditate numquam necessitatibus harum quod, quidem, eaque aliquid enim tempore quis, sint consectetur non! Corrupti laboriosam cum iure velit quasi dicta ipsam mollitia est? Beatae excepturi hic nostrum laboriosam, est cupiditate reiciendis sed ut consequatur repellendus doloribus, necessitatibus cum! Laudantium odit molestiae neque dolorum quia molestias et reprehenderit sit obcaecati, deleniti magnam ipsam ex sunt illo quod rem excepturi natus, repudiandae facere? Dolores molestias distinctio rem, tenetur perferendis velit, molestiae ad doloremque laboriosam aliquam amet suscipit? Molestiae officia dolores quidem mollitia animi!</p>
             <div class="card-deck row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -14,11 +19,11 @@
               {% for article in articles %}
               <div class="col mb-4">
               <div class="card">
-                <img src="media/{{ article.image }}" class="card-img-top" alt="..."> 
+                <a title="{{article.title}}" href="{% url 'articles' article.pk %}"><img src="media/{{ article.image }}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                   <h5 class="card-title"><a href="{% url 'articles' article.pk %}">{{article.title}}</a></h5>
                   <p class="card-text">{{article.detail  | truncatewords_html:20}}</p>
-                  <p class="card-text"><small class="text-muted"><a href="{% url 'articles' article.pk %}">Read more...</a></small></p>
+                  <p class="card-text"><small class="text-muted"><a class="btn btn-dark btn-sm" href="{% url 'articles' article.pk %}">Read more...</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'update' article.id %}">Edit</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'delete' article.id %}">Delete</a></small></p>
                 </div>
               </div>
               </div>

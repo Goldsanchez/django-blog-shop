@@ -6,6 +6,7 @@
 <div class="container col-md-6 my-3">
     <div class="row">
         <div class="col">
+            <img class="img-fluid my-3" src="{{object.image.url}}" alt="{object.title}}" title="{{object.title}}">
             <h1>{{object.title}} &nbsp<a class="btn btn-primary" href="{% url 'update' object.id %}"><i class="fas fa-plus-circle">&nbsp</i>Update</a>&nbsp<a class="btn btn-danger" href="{% url 'delete' object.id %}"><i class="fas fa-trash">&nbsp</i>Delete</a></h1>
             <p>{{object.detail}}</p>
             <p >{{comentarios.comment}}</p>

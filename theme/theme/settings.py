@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'orbital',
-    'products',
-    'cart',
-    'orders',
+    'accounts',
+
+    # para usar bootstrap en forms que no acepta django como password
+    "crispy_forms",
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4" # para que funcione "crispy_forms"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,7 +62,7 @@ ROOT_URLCONF = 'theme.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +70,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processor.cart_total_amount', # agregado para el archivo context_processor.py
             ],
         },
     },
@@ -129,6 +131,10 @@ EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
+# SMTP Server de learn djagon para enviar correos| config/settings.py
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -140,5 +146,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'orbital/static/'),)
 MEDIA_URL = '/media/'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'orbital/media/')
+
+# config/settings.py
+LOGIN_REDIRECT_URL = 'home' # LOGIN_REDIRECT_URL = '/' antes
+LOGOUT_REDIRECT_URL = 'home' # LOGOUT_REDIRECT_URL = '/' antes
 
 

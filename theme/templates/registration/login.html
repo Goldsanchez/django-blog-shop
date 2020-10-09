@@ -1,0 +1,21 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block article %}
+<div class="container col-md-4 my-3">
+    <div class="row">
+        <div class="col">
+            <h2> Login </h2>
+            <form method="POST">{% csrf_token %}
+                {{form|crispy}}
+                
+                <input class="btn btn-primary" type="submit" value="Login">
+                <a class="btn btn-secondary" href="{% url 'home' %}">Cancel</a>
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock article %}

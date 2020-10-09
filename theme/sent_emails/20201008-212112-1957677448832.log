@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: luffy@hotmail.com
+Date: Fri, 09 Oct 2020 02:21:12 -0000
+Message-ID: <160221007229.8496.8519388475001436495@DESKTOP-IELKVC9>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset/Mg/abg0n8-5c770ffc3d1804f1d7aa5cb5e1fe2e3f/
+
+Your username, in case you’ve forgotten: Luffy
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
