@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from .models import New, Comment
+from .models import Category, New, Comment
 from .forms import NewForm, CommentForm
 from django.utils import timezone
 
@@ -36,11 +36,17 @@ class Articles(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comentarios'] = Comment.objects.all()
         context['now'] = timezone.now()
-        context['articles'] = New.objects.all()
         context['form'] = CommentForm()
         return context
+
+    def post(self, request, *args, **kwargs):
+        new_comment = Comment(comment=request.POST.get('comment'),
+                                  name=request.POST.get('name'),
+                                  email=request.POST.get('email'),
+                                  new=self.get_object())
+        new_comment.save()
+        return self.get(self, request, *args, **kwargs)
 
 class Create(CreateView): 
     form_class = NewForm

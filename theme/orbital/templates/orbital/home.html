@@ -19,11 +19,11 @@
               {% for article in articles %}
               <div class="col mb-4">
               <div class="card">
-                <a title="{{article.title}}" href="{% url 'articles' article.pk %}"><img src="media/{{ article.image }}" class="card-img-top" alt="..."></a>
+                <a title="{{article.title}}" href="{% url 'articles' article.slug %}"><img src="media/{{ article.image }}" class="card-img-top" alt="..."></a>
                 <div class="card-body">
-                  <h5 class="card-title"><a href="{% url 'articles' article.pk %}">{{article.title}}</a></h5>
+                  <h5 class="card-title"><a href="{% url 'articles' article.slug %}">{{article.title}}</a></h5>
                   <p class="card-text">{{article.detail  | truncatewords_html:20}}</p>
-                  <p class="card-text"><small class="text-muted"><a class="btn btn-dark btn-sm" href="{% url 'articles' article.pk %}">Read more...</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'update' article.id %}">Edit</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'delete' article.id %}">Delete</a></small></p>
+                  <p class="card-text"><small class="text-muted"><a class="btn btn-success btn-sm" href="{% url 'articles' article.slug %}">Read more...</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'update' article.slug %}">Edit</a>&nbsp<a class="btn btn-dark btn-sm" href="{% url 'delete' article.slug %}">Delete</a></small></p>
                 </div>
               </div>
               </div>

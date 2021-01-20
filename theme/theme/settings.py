@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+import rest_framework
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'bi87q9el67#ejmj_#b%s5nm^r0o87s9bzto$oxnvu6zbe-oj_^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -40,9 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'orbital',
     'accounts',
+    'rest_framework',
+    'postapi',
 
     # para usar bootstrap en forms que no acepta django como password
-    "crispy_forms",
+    'crispy_forms',
+    # para usar texto enriquecido en los aritulcos
+    'ckeditor',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4" # para que funcione "crispy_forms"
@@ -151,4 +157,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'orbital/media/')
 LOGIN_REDIRECT_URL = 'home' # LOGIN_REDIRECT_URL = '/' antes
 LOGOUT_REDIRECT_URL = 'home' # LOGOUT_REDIRECT_URL = '/' antes
 
+#AUTH_USER_MODEL = 'accounts.CustomUser' # nuevo - para nuestro propio registro de usuarios
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': '100%',
+    },
+}
