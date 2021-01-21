@@ -1,7 +1,7 @@
 #***(1)Returns all customers from customer table
 customers = Customer.objects.all()
 
-#(2)Returns first customer in table
+#(2)Returns first customer in table.
 firstCustomer = Customer.objects.first()
 
 #(3)Returns last customer in table
