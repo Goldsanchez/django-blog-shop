@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.contrib.auth import views
 from django.views.generic.base import TemplateView
 
+from django.views.static import serve # agregado para heroku
+from django.conf.urls import url # agregado para heroku
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('api/', include('postapi.urls')),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), # agregado para heroku
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), # agregado para heroku
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
