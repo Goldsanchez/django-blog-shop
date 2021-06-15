@@ -7,13 +7,13 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Articles <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Players</a>
+              <a class="nav-link" href="https://dev-django-pe.herokuapp.com/api/new/">Api</a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Players</a>
+            </li> -->
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Coaching
               </a>
@@ -23,16 +23,16 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'spin' %}">Spins</a>
               </div>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Shop</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link text-white btn btn-primary btn-sm" href="{% url 'create' %}" tabindex="-1" aria-disabled="true"><i class="fas fa-plus">&nbsp</i>Add Article</a>
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link btn btn-light btn-sm ml-2">Hi {{ user.username }}!</a>
+                <a class="nav-link text-white btn btn-dark btn-sm ml-2">Hi {{ user.username }}!</a>
               </li>
             {% else %}
               <li class="nav-item">
@@ -42,7 +42,7 @@
             
             {% if user.is_authenticated %}
               <li class="nav-item text-white">
-                <a class="nav-link text-white btn btn-light btn-sm ml-2" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link text-white btn btn-dark btn-sm ml-2" href="{% url 'logout' %}">Logout</a>
               </li>
             {% else %}
             <li class="nav-item">
@@ -52,10 +52,10 @@
 
             
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
             <button class="btn btn-outline-primary my-sm-0" type="submit">Search</button>
-          </form>
+          </form> -->
         </div>
       </nav>
 </div>

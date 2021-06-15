@@ -28,7 +28,7 @@ SECRET_KEY = 'bi87q9el67#ejmj_#b%s5nm^r0o87s9bzto$oxnvu6zbe-oj_^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dev-django-pe.herokuapp.com']
 
 
 # Application definition
@@ -55,6 +55,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4" # para que funcione "crispy_forms"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -144,6 +145,8 @@ EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+# add this
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'orbital/static/'),)
