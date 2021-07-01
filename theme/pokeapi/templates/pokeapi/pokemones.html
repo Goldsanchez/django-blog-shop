@@ -1,0 +1,38 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Battle PokeApi</title>
+    {% endblock title %}
+{% block article %}
+<div class="container mt-5">
+    <div class="row align-items-center justify-content-around">
+        <div class="col-4 text-right">
+            <img src="{{pokemonOne.sprites.front_default }}" class="rounded-circle border border-success mb-3" alt="..."></a>
+            <P><b>Name:</b> {{ pokemonOne.name | capfirst  }}</P>
+            <P><b>Type:</b> {{ pokemonOne.types.0.type.name | capfirst  }}</P>
+            
+            
+        </div>
+        <div class="col-2 text-center">
+            <p><b>VS.</b></p>
+        </div>
+        <div class="col-4 text-left">
+            <img src="{{pokemonTwo.sprites.front_default }}" class="rounded-circle border border-success mb-3" alt="..."></a>
+            <P><b>Name:</b> {{ pokemonTwo.name | capfirst  }}</P>
+            <P><b>Type:</b> {{ pokemonTwo.types.0.type.name | capfirst  }}</P>
+
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <button class="btn btn-success"><a class="nav-link text-white" href="{% url 'pokeapi' %}">New Battle</a></button>
+        </div>
+        
+    </div>
+</div>
+        
+{% endblock article %}
+
+    

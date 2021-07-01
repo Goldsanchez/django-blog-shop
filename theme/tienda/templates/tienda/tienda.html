@@ -1,0 +1,49 @@
+{% extends "orbital/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Tienda Anime</title>
+{% endblock title %}
+
+{% block article %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img class="mt-3 img-fluid h-5" src="{% static 'images/anime-manga-2021.jpg' %}" alt="image">
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center my-3">Tienda Online de Manga y Anime</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur itaque veniam voluptatibus laudantium accusantium dolor odio sit ex cupiditate numquam necessitatibus harum quod, quidem, eaque aliquid enim tempore quis, sint consectetur non! Corrupti laboriosam cum iure velit quasi dicta ipsam mollitia est? Beatae excepturi hic nostrum laboriosam, est cupiditate reiciendis sed ut consequatur repellendus doloribus, necessitatibus cum! Laudantium odit molestiae neque dolorum quia molestias et reprehenderit sit obcaecati, deleniti magnam ipsam ex sunt illo quod rem excepturi natus, repudiandae facere? Dolores molestias distinctio rem, tenetur perferendis velit, molestiae ad doloremque laboriosam aliquam amet suscipit? Molestiae officia dolores quidem mollitia animi!</p>
+                        
+            
+            {% include 'carro/widget.html' %}
+
+            <div class="card-deck row-cols-1 row-cols-md-2 row-cols-lg-3">
+              
+              {% for producto in productos %}
+              <div class="col mb-4">
+              <div class="card">
+                <a title="{{producto.title}}" href="#"><img src="{{ producto.imagen.url }}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                  <h5 class="card-title text-center"><a href="#">{{producto.nombre}}</a></h5>
+                  <p class="card-text text-center">{{producto.precio  | truncatewords_html:20}}&nbsp$</p>
+                  <p class="card-text text-center"><small class="text-muted"><a class="btn btn-info btn-sm" href="#">Ver detalles...</a>&nbsp<a class="btn btn-dark btn-sm" href="#">Edit</a>&nbsp<a class="btn btn-dark btn-sm" href="#">Delete</a></small></p>
+                </div>
+                <div class="card-footer text-center">
+                  <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carro</a>
+                </div>
+              </div>
+              </div>
+              
+              {% endfor %}
+            </div>
+              </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock article %}

@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'postapi',
+    'tienda',
+    'carro',
+    'pokeapi',
 
     # para usar bootstrap en forms que no acepta django como password
     'crispy_forms',
@@ -77,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carro.context_processor.importe_total_carro',
             ],
         },
     },

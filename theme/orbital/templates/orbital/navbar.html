@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="{% url 'home' %}">Poker Online</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Antonio Sánchez</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="https://dev-django-pe.herokuapp.com/api/new/">Api</a>
+              <a class="nav-link text-white btn btn-info btn-sm ml-2" href="https://dev-django-pe.herokuapp.com/api/new/">Api Blog</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">Players</a>
@@ -28,7 +28,7 @@
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Shop</a>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link text-white btn btn-primary btn-sm" href="{% url 'create' %}" tabindex="-1" aria-disabled="true"><i class="fas fa-plus">&nbsp</i>Add Article</a>
+              <a class="nav-link text-white btn btn-primary btn-sm ml-2" href="{% url 'create' %}" tabindex="-1" aria-disabled="true"><i class="fas fa-plus">&nbsp</i>Agregar Artículo</a>
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
@@ -49,6 +49,15 @@
               <a class="nav-link text-white btn btn-danger btn-sm ml-2" href="{% url 'signup' %}">Sign Up</a>
             </li>
             {% endif %}
+            <li class="nav-item">
+              <a class="nav-link text-white btn btn-success btn-sm ml-2" href="{% url 'tienda' %}" tabindex="-1" aria-disabled="true"><i class="fas fa-store">&nbsp</i>Tienda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white btn btn-warning btn-sm ml-2" href="{% url 'pokeapi' %}" tabindex="-1" aria-disabled="true"><i class="fab fa-fort-awesome-alt">&nbsp</i>Battle Pokemón</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white btn btn-info btn-sm ml-2" href="https://twitter.com/Goldsanchez" tabindex="-1" aria-disabled="true"><i class="fab fa-twitter">&nbsp</i>Twitter</a>
+            </li>
 
             
           </ul>
